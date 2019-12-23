@@ -1,4 +1,5 @@
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 public class WordCount {
@@ -11,5 +12,9 @@ public class WordCount {
         sc.setAppName(WordCount.class.getSimpleName());
         /*创建spark程序入口JavaSparkContext的对象*/
         JavaSparkContext jsc = new JavaSparkContext(sc);
+
+
+        /*step2.加载数据*/
+        JavaRDD<String> stringJavaRDD = jsc.textFile("E:/word.txt");
     }
 }
