@@ -11,6 +11,5 @@ public class WordCount {
         sc.setAppName(WordCount.class.getSimpleName());
         /*创建spark程序入口JavaSparkContext的对象*/
         JavaSparkContext jsc = new JavaSparkContext(sc);
-        System.out.println(jsc);
     }
 }
