@@ -9,7 +9,7 @@ public class WordCount {
         /*在SparkConf对象中设置连接的master URL字符串*/
         sc.setMaster("local[*]");
         /*创建spark程序入口JavaSparkContext的对象*/
-        JavaSparkContext jsc = new JavaSparkContext();
+        JavaSparkContext jsc = new JavaSparkContext(sc);
 
         System.out.println(jsc);
     }
