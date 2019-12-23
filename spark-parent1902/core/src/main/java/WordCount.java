@@ -6,6 +6,8 @@ public class WordCount {
 
         /*观察JvaSparkContext源码发现，创建JavaSparkContext对象需要传传入SparkConf对象，因此需要创建SparkConf*/
         SparkConf sc = new SparkConf();
+        /*在SparkConf对象中设置连接的master URL字符串*/
+        sc.setMaster("local[*]");
         /*创建spark程序入口JavaSparkContext的对象*/
         JavaSparkContext jsc = new JavaSparkContext();
 
