@@ -9,7 +9,8 @@ object MapPartitionOp {
   def mapPatitinOp(sc: SparkContext): Unit = {
     val lis = 1 to 20
     val lisDRR = sc.parallelize(lis)
-
+    val parNum = lisDRR.getNumPartitions
+    println(parNum)
     val ret = lisDRR.mapPartitions(partition =>{
       partition.map(num => {
         (num,1)
