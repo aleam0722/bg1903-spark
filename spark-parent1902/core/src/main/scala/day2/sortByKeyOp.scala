@@ -36,6 +36,11 @@ object sortByKeyOp {
      * param ---> stu.height (提供进行排序的字段)
      *             numPartitions = 1 (指定分区)
      *             ascending (指定升序或者降序，true为升序，false为降序)
+     * result---->
+     * Student(3,随国强,18,176.0)
+     * Student(2,彭国宏,18,175.0)
+     * Student(5,王静轶,18,168.5)
+     * Student(1,吴轩宇,19,168.0)
      */
     val ret = stuDrr.sortBy(stu => stu.height,numPartitions = 1, ascending = false)
     ret.foreach(println)
