@@ -45,6 +45,29 @@ object sortByKeyOp {
     val ret = stuDrr.sortBy(stu => stu.height,numPartitions = 1, ascending = false)
     ret.foreach(println)
   }
+
+  def sortByOp2(sc: SparkContext): Unit = {
+    val stuDrr = sc.parallelize(list)
+    /**
+     * param ---> stu.height (提供进行排序的字段)
+     * numPartitions = 1 (指定分区)
+     * 并且提供用于比较的方式，以及在运行时的数据类型ClassTag标记型trait
+     * result---->
+     * Student(3,随国强,18,176.0)
+     * Student(2,彭国宏,18,175.0)
+     * Student(5,王静轶,18,168.5)
+     * Student(1,吴轩宇,19,168.0)
+     */
+    val ret = stuDrr.sortBy(stu => stu.height, numPartitions = 1)(
+      new Ordering[Double] {
+        override def compare(x: Double, y: Double): Int = x.compareTo(y)
+      },
+      ClassTag.Double.asInstanceOf[ClassTag[Double]]
+    )
+    ret.foreach(println)
+
+
+  }
 }
 
 

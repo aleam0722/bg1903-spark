@@ -36,5 +36,4 @@ object CombineByKeyOp {
   def mergeCombiners(combinerr1: ArrayBuffer[String], combinerr2: ArrayBuffer[String]) = {
     combinerr1 ++ combinerr2
   }
-  sc.stop()
 }
