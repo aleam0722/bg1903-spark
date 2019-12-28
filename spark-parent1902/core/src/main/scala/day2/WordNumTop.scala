@@ -1,3 +1,5 @@
+package day2
+
 import org.apache.spark.{SparkConf, SparkContext}
 
 object WordNumTop {
