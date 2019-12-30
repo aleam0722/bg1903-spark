@@ -17,6 +17,7 @@
     <modules>
         <module>common</module>
         <module>core</module>
+        <module>spark_sql</module>
     </modules>
 
     <dependencyManagement>
@@ -49,6 +50,11 @@
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-streaming_2.11</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_2.11</artifactId>
                 <version>${spark.version}</version>
             </dependency>
         </dependencies>
