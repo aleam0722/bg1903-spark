@@ -6,7 +6,8 @@ object SparkSqlOp {
   def main(args: Array[String]): Unit = {
 //    loadData(spark)
 //    showData(spark)
-    simpleSelect(spark)
+//    simpleSelect(spark)
+    clumnOperation(spark)
   }
   def loadData(spark:SparkSession):Unit = {
     /*加载一个json格式的数据*/
@@ -97,6 +98,14 @@ object SparkSqlOp {
      * |            99|  806 Rockwell Place|
      * +--------------+--------------------+
      */
+  }
+
+  def clumnOperation(spark: SparkSession): Unit = {
+    val dataFrame = spark.read.json("File:///e:/sparkData/sql/account.json")
+    import spark.implicits._
+    dataFrame.select($"account_number"-1).show()
+    spark.stop()
+
   }
 
 
