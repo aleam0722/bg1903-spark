@@ -5,7 +5,8 @@ object SparkSqlOp {
   val spark = SparkSession.builder().master("local[*]").appName("SparkSqlOp").getOrCreate()
   def main(args: Array[String]): Unit = {
 //    loadData(spark)
-    showData(spark)
+//    showData(spark)
+    simpleSelect(spark)
   }
   def loadData(spark:SparkSession):Unit = {
     /*加载一个json格式的数据*/
@@ -60,6 +61,41 @@ object SparkSqlOp {
      * |            94|  183 Kathleen Court| 30|  41060| Cornucopia|brittanycabrera@m...|   Mixers| Brittany|     F|  Cabrera|   KS|
      * |            99|  806 Rockwell Place| 39|  47159|      Shaft|ratliffheath@zapp...|   Zappix|  Ratliff|     F|    Heath|   KS|
      * +--------------+--------------------+---+-------+-----------+--------------------+---------+---------+------+---------+-----+
+     */
+
+  }
+
+  def simpleSelect(spark: SparkSession): Unit = {
+    val dataFrame = spark.read.json("File:///e:/sparkData/sql/account.json")
+    dataFrame.select("account_number", "address").show()
+    spark.stop()
+
+    /**
+     * result----->
+     * +--------------+--------------------+
+     * |account_number|             address|
+     * +--------------+--------------------+
+     * |             1|     880 Holmes Lane|
+     * |             6|  671 Bristol Street|
+     * |            13|  789 Madison Street|
+     * |            18|467 Hutchinson Court|
+     * |            20|     282 Kings Place|
+     * |            25|   171 Putnam Avenue|
+     * |            32|  702 Quentin Street|
+     * |            37|  826 Fillmore Place|
+     * |            44|502 Baycliff Terrace|
+     * |            49| 451 Humboldt Street|
+     * |            51|    334 River Street|
+     * |            56|     857 Tabor Court|
+     * |            63| 510 Sedgwick Street|
+     * |            68|     927 Bay Parkway|
+     * |            70|     685 School Lane|
+     * |            75| 166 Irvington Place|
+     * |            82|   195 Bayview Place|
+     * |            87|  446 Halleck Street|
+     * |            94|  183 Kathleen Court|
+     * |            99|  806 Rockwell Place|
+     * +--------------+--------------------+
      */
   }
 
