@@ -10,7 +10,8 @@ object SparkSqlOp {
 //    clumnOperation(spark)
 //    aliasOperation(spark)
 //    aggeragarionOperation(spark)
-    conditionQurrey(spark)
+//    conditionQurrey(spark)
+    temviewOps(spark)
   }
 
   def loadData(spark:SparkSession):Unit = {
@@ -183,6 +184,38 @@ object SparkSqlOp {
     import spark.implicits._
     dataFrame.select($"account_number", $"city").where($"age">30).show()
     spark.stop()
+  }
+  def temviewOps(spark: SparkSession): Unit ={
+    val dataFrame = spark.read.json("FIle:///e:/sparkData/sql/account.json")
+    dataFrame.createOrReplaceTempView("account")
+    spark.sql(
+      """
+        |select
+        |age,
+        |count(*) as countz
+        |from account
+        |group by age
+        |""".stripMargin).show()
+    spark.stop()
+
+    /**
+     * result----->
+     * |age|countz|
+     * +---+------+
+     * | 22|     2|
+     * | 34|     1|
+     * | 32|     2|
+     * | 31|     1|
+     * | 39|     4|
+     * | 25|     1|
+     * | 28|     1|
+     * | 33|     2|
+     * | 37|     1|
+     * | 36|     2|
+     * | 30|     2|
+     * | 23|     1|
+     * +---+------+
+     */
   }
 
 }
