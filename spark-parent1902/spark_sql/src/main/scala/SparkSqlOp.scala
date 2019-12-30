@@ -7,7 +7,8 @@ object SparkSqlOp {
 //    loadData(spark)
 //    showData(spark)
 //    simpleSelect(spark)
-    clumnOperation(spark)
+//    clumnOperation(spark)
+    aliasOperation(spark)
   }
   def loadData(spark:SparkSession):Unit = {
     /*加载一个json格式的数据*/
@@ -132,6 +133,40 @@ object SparkSqlOp {
      * +--------------------+
      * */
 
+  }
+  def aliasOperation(spark: SparkSession): Unit ={
+    import spark.implicits._
+    val dataFrame = spark.read.json("File:///e:/sparkData/sql/account.json")
+    dataFrame.select(($"account_number"-1).as("goupi")).show()
+    spark.stop()
+
+    /**
+     * result----->
+     * +-----+
+     * |goupi|
+     * +-----+
+     * |    0|
+     * |    5|
+     * |   12|
+     * |   17|
+     * |   19|
+     * |   24|
+     * |   31|
+     * |   36|
+     * |   43|
+     * |   48|
+     * |   50|
+     * |   55|
+     * |   62|
+     * |   67|
+     * |   69|
+     * |   74|
+     * |   81|
+     * |   86|
+     * |   93|
+     * |   98|
+     * +-----+
+     */
   }
 
 
