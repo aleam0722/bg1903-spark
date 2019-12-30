@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/common/common.iml" filepath="$PROJECT_DIR$/spark-parent1902/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/core/core.iml" filepath="$PROJECT_DIR$/spark-parent1902/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/spark-parent1902.iml" filepath="$PROJECT_DIR$/spark-parent1902/spark-parent1902.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-parent1902/spark_sql/spark_sql.iml" filepath="$PROJECT_DIR$/spark-parent1902/spark_sql/spark_sql.iml" />
     </modules>
   </component>
 </project>
