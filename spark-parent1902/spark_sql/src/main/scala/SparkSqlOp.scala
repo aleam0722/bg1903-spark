@@ -8,7 +8,8 @@ object SparkSqlOp {
 //    showData(spark)
 //    simpleSelect(spark)
 //    clumnOperation(spark)
-    aliasOperation(spark)
+//    aliasOperation(spark)
+    aggeragarionOperation(spark)
   }
   def loadData(spark:SparkSession):Unit = {
     /*加载一个json格式的数据*/
@@ -168,6 +169,11 @@ object SparkSqlOp {
      * +-----+
      */
   }
-
+  def aggeragarionOperation(spark: SparkSession):Unit = {
+    val dataFrame = spark.read.json("File:///e:/sparkData/sql/account.json")
+    import spark.implicits._
+    dataFrame.select($"age").groupBy($"age").count().as("shabi").show()
+    spark.stop()
+  }
 
 }
