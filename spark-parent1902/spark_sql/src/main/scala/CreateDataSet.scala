@@ -8,8 +8,8 @@ object CreateDataSet {
 
   def createDataSet(spark: SparkSession): Unit = {
     val list = List(
-      new Studentz(1, "chengxubin", 1, 24),
-      new Studentz(2, "wangyujiao", 0, 24)
+      Studentz(1, "chengxubin", 1, 24),
+      Studentz(2, "wangyujiao", 0, 24)
     )
     import spark.implicits._
     val dataSet = spark.createDataset(list)
