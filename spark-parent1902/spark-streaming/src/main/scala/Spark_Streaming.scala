@@ -10,6 +10,10 @@ object Spark_Streaming {
   val sparkConf = new SparkConf().setAppName("Spark_Streaming").setMaster("local[*]")
   val ssc = new StreamingContext(sparkConf,Seconds(1))
   def main(args: Array[String]): Unit = {
-
+    val loglines = ssc.socketTextStream("bigdata3", 7777)
+    val errorLines = loglines.filter(_.contains("error"))
+    errorLines.print()
+    ssc.start()
+    ssc.awaitTermination()
   }
 }
