@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/spark-parent1902.iml" filepath="$PROJECT_DIR$/spark-parent1902/spark-parent1902.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/spark_sql/spark_sql.iml" filepath="$PROJECT_DIR$/spark-parent1902/spark_sql/spark_sql.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-parent1902/spark-streaming/sparkstreaming.iml" filepath="$PROJECT_DIR$/spark-parent1902/spark-streaming/sparkstreaming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-parent1902/zookeeperOpration/zookeeperOpration.iml" filepath="$PROJECT_DIR$/spark-parent1902/zookeeperOpration/zookeeperOpration.iml" />
     </modules>
   </component>
 </project>

@@ -19,6 +19,7 @@
         <module>core</module>
         <module>spark_sql</module>
         <module>spark-streaming</module>
+        <module>zookeeperOpration</module>
     </modules>
 
     <dependencyManagement>

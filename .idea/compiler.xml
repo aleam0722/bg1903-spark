@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="common" />
+        <module name="zookeeperOpration" />
         <module name="spark_sql" />
         <module name="sparkstreaming" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="spark-parent1902" target="1.5" />
       <module name="spark_sql" target="1.5" />
       <module name="sparkstreaming" target="1.5" />
+      <module name="zookeeperOpration" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
